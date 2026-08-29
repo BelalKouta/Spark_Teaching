@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-ink-base text-gray-200 font-sans antialiased;
+  }
+
+  ::selection {
+    @apply bg-gold-300/30 text-gold-50;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-ink-base;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-ink-border rounded-full;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-gold-600/50;
+  }
+}
+
+@layer components {
+  .gold-text {
+    @apply bg-gradient-to-r from-gold-200 via-gold-300 to-gold-400 bg-clip-text text-transparent;
+  }
+
+  .gold-border {
+    @apply border border-amber-600/30;
+  }
+
+  .card-base {
+    @apply bg-ink-card border border-ink-border rounded-2xl shadow-card;
+  }
+
+  .btn-gold {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-gold-300 to-gold-400 px-5 py-2.5 text-sm font-semibold text-ink-base transition-all duration-200 hover:shadow-gold-glow hover:from-gold-200 hover:to-gold-300 active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl border border-ink-border bg-ink-raised px-5 py-2.5 text-sm font-medium text-gray-300 transition-all duration-200 hover:border-gold-600/50 hover:text-gold-200 active:scale-[0.98];
+  }
+
+  .input-dark {
+    @apply w-full rounded-xl border border-ink-border bg-ink-raised px-4 py-3 text-sm text-gray-100 placeholder-gray-500 transition-colors duration-200 focus:border-gold-600/60 focus:outline-none focus:ring-1 focus:ring-gold-600/30;
+  }
+
+  .badge {
+    @apply inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-medium;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .shimmer-bg {
+    background: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(212, 175, 55, 0.08) 50%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    background-size: 200% 100%;
+  }
+}
